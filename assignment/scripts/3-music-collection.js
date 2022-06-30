@@ -39,9 +39,9 @@ console.log('Added to collection', addToCollection('Endgame', 'Rise Against', 20
 // more Foo Fighters! RIP Taylor Hawkins
 console.log('Added to collection', addToCollection('One by One', 'Foo Fighters', 2002,[{name:'All My Life',duration:4.23},{name:'Low',duration:4.28},{name:'Have It All',duration:4.57},{name:'Times Like These',duration:4.26},{name:'Disenchanted Lullaby',duration:4.33},{name:'Tired of You',duration:5.11},{name:'Halo',duration:5.06},{name:'Lonely as You',duration:4.37},{name:'Overdrive',duration:4.30},{name:'Burn Away',duration:4.58},{name:'Come Back',duration:7.49}]));
 // album 5
-console.log('Added to collection', addToCollection('Dear Agony', 'Breaking Benjamin', 2009));
+console.log('Added to collection', addToCollection('Dear Agony', 'Breaking Benjamin', 2009,[{name:'Fade Away',duration:3.16},{name:'I Will Not Bow',duration:3.36},{name:'Crawl',duration:3.58},{name:'Give Me a Sign',duration:4.17},{name:'Hopeless',duration:3.20},{name:'What Lies Beneath',duration:3.34},{name:'Anthem of the Angels',duration:4.02},{name:'Lights Out',duration:3.33},{name:'Dear Agony',duration:4.18},{name:'Into the Nothing',duration:3.43},{name:'Without You',duration:4.16}]));
 // album 6
-console.log('Added to collection', addToCollection('Joe\'s Garage', 'Frank Zappa', 1987));
+console.log('Added to collection', addToCollection('Joe\'s Garage Disk 1', 'Frank Zappa', 1987,[{name:'The Central Scrutinizer',duration:3.30},{name:'Joe\'s Garage',duration:6.12},{name:'Catholic Girls',duration:4.21},{name:'Crew Slut',duration:6.40},{name:'Fembot in a Wet T-Shirt',duration:4.46},{name:'On the Bus',duration:4.33},{name:'Why Does It Hurt When I Pee?',duration:2.25},{name:'Lucille Has Messed My Mind Up',duration:5.44},{name:'Scrutinizer Postlude',duration:1.36},{name:'A Token of My Extreme',duration:5.31},{name:'Stick It Out',duration:4.36},{name:'Sy Borg',duration:8.55}]));
 
 // instructions say console.log, I made a table instead
 // console.log(collection);
