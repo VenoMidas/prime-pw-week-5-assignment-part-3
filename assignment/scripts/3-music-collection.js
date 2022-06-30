@@ -67,3 +67,28 @@ showCollection(collection);
 // tested with and empty array and a single item array
 // showCollection(emptyCollection);
 // showCollection(sadCollection);
+
+/**
+ * Search an album collection for specific artist
+ * 
+ * @param {string} artist - is for the artist you are looking for
+ * @param {object[]} albumCollection - is for the collection to look through
+ * 
+ * @returns an array of found albums
+ */
+function findByArtist(artist, albumCollection) {
+    const foundArtist = [];
+    for(let album of albumCollection) {
+        if (artist === album.artist) {
+            foundArtist.push(album);
+        }
+    } 
+    return foundArtist;
+}
+
+// search for multiple
+console.log('Looking for \'Foo Fighters\'', findByArtist('Foo Fighters', collection));
+// search for single
+console.log('Looking for \'Rise Against\'', findByArtist('Rise Against', collection));
+// search for something that doesnt exist in the collection
+console.log('looking for \'Stone Temple Pilots\'', findByArtist('Stone Temple Pilots', collection));
