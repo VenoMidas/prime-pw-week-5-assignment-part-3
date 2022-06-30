@@ -60,7 +60,7 @@ function showCollection(albumCollection) {
         console.log('There is', albumCollection.length, 'album in this collection')
     } for(let album of albumCollection) {
         // did this a couple ways
-        console.log(`${album.title} by ${album.artist}, published in ${album.year}`)
+        console.log(`${album.title} by ${album.artist}, published in ${album.year}, has ${album.tracks.length} tracks.`)
         // console.log(album.title, 'by', album.artist + ', published in', album.year + '.');
     };
 };
