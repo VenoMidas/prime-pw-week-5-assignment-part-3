@@ -92,3 +92,33 @@ console.log('Looking for \'Foo Fighters\'', findByArtist('Foo Fighters', collect
 console.log('Looking for \'Rise Against\'', findByArtist('Rise Against', collection));
 // search for something that doesnt exist in the collection
 console.log('looking for \'Stone Temple Pilots\'', findByArtist('Stone Temple Pilots', collection));
+
+/**
+ * Search for an object in an album collection
+ * 
+ * @param {Object[]} albumCollection - is for the collection to search in
+ * @param {Object} object - is for an object to search for
+ * 
+ * @returns an array with the matching album, if object is empty or undefined returns albumCollection
+ */
+function search(albumCollection, object) {
+    const foundAll = [];
+    if (object === undefined || Object.keys(object).length === 0) {
+        return albumCollection;
+    }
+    for (let album of albumCollection) {
+        if(object.artist === album.artist && object.year === album.year) {
+            foundAll.push(album);
+        } 
+    }
+    return foundAll;
+}
+
+// return items in the collection that match ALL search criteria
+console.log('Looking in the album collection for Foo Fighters albums from 1995', search(collection, {artist: 'Foo Fighters', year: 1995}));
+// return empty array if no results are found
+console.log('Looking in the album collection for Foo Fighters albums from 1996', search(collection, {artist: 'Foo Fighters', year: 1996}));
+// return collection searching for undefined object
+console.log('Looking for an undefined object', search(collection));
+// return collection searching for empty object;
+console.log('Looking for an empty object', search(collection, {}))
