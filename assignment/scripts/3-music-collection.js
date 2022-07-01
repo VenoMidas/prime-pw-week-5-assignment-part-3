@@ -95,11 +95,53 @@ console.log('Looking for \'Rise Against\'', findByArtist('Rise Against', collect
 // search for something that doesnt exist in the collection
 console.log('looking for \'Stone Temple Pilots\'', findByArtist('Stone Temple Pilots', collection));
 
+// commenting out and copying this last code block to work on the stretch goals. Uncomment this block below to have the requested features for the assignment working.
+
+
+// /**
+//  * Search for an object in an album collection
+//  * 
+//  * @param {Object[]} albumCollection - is for the collection to search in
+//  * @param {Object} object - is for an object to search for artist AND year 
+//  * 
+//  * @returns an array with the matching album, if object is empty or undefined returns albumCollection
+//  */
+// function search(albumCollection, object) {
+//     const foundAll = [];
+//     // object.length doesn't work, neither does if object === {}
+//     // object.keys() returns the object properties as an array
+//     // which we can use .length on. an empty object would be 0
+//     if (object === undefined || Object.keys(object).length === 0) {
+//         return albumCollection;
+//     }
+//     for (let album of albumCollection) {
+//         // Instruction state ALL search criteria opject parameters should match to return the album, so i'm using &&. I want to come back later and mess around with other options for returns if time permits
+//         if(object.artist === album.artist && object.year === album.year) {
+//             foundAll.push(album);
+//         } 
+//     }
+//     return foundAll;
+// }
+
+// // return items in the collection that match ALL search criteria
+// console.log('Looking in the album collection for Foo Fighters albums from 1995', search(collection, {artist: 'Foo Fighters', year: 1995}));
+// // return empty array if no results are found
+// console.log('Looking in the album collection for Foo Fighters albums from 1996', search(collection, {artist: 'Foo Fighters', year: 1996}));
+// // return collection searching for undefined object
+// console.log('Looking for an undefined object', search(collection));
+// // return collection searching for empty object;
+// console.log('Looking for an empty object', search(collection, {}))
+
+
+// end comment out 
+
+//stretch goal function below
+
 /**
  * Search for an object in an album collection
  * 
  * @param {Object[]} albumCollection - is for the collection to search in
- * @param {Object} object - is for an object to search for
+ * @param {Object} object - is for an object to search for artist, year, and trackName 
  * 
  * @returns an array with the matching album, if object is empty or undefined returns albumCollection
  */
@@ -112,18 +154,29 @@ function search(albumCollection, object) {
         return albumCollection;
     }
     for (let album of albumCollection) {
+        // Instruction state ALL search criteria opject parameters should match to return the album, so i'm using &&. I want to come back later and mess around with other options for returns if time permits
         if(object.artist === album.artist && object.year === album.year) {
-            foundAll.push(album);
+            for(let tracks of album.tracks) {
+                if(tracks.name === object.trackName) {
+                    foundAll.push(album);
+                }
+            }
         } 
     }
     return foundAll;
 }
 
 // return items in the collection that match ALL search criteria
-console.log('Looking in the album collection for Foo Fighters albums from 1995', search(collection, {artist: 'Foo Fighters', year: 1995}));
-// return empty array if no results are found
-console.log('Looking in the album collection for Foo Fighters albums from 1996', search(collection, {artist: 'Foo Fighters', year: 1996}));
+console.log('Looking in the album collection for Foo Fighters album from 1995 with track name \'This Is a Call\'', search(collection, {artist: 'Foo Fighters', year: 1995, trackName: 'This Is a Call'}));
+
+// trying another album that isn't the first album and first track, going to use something that has duplicate artist and year 
+console.log('Looking in the album collection for Foo Fighters album from 2011 with track name \'Arlandria\'', search(collection, {artist: 'Foo Fighters', year: 2011, trackName: 'Arlandria'}))
+
+// return empty array if no results are found, want to return true in the artist and year loop, but false out of the track loop
+console.log('Looking in the album collection for Foo Fighters albums from 1996 with tack name \'This doesn\'t exist\'', search(collection, {artist: 'Foo Fighters', year: 1995, trackName: 'This doesn\'t exist'}));
+
 // return collection searching for undefined object
 console.log('Looking for an undefined object', search(collection));
+
 // return collection searching for empty object;
 console.log('Looking for an empty object', search(collection, {}))
