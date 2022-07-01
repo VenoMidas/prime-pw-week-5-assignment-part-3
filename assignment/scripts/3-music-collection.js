@@ -180,3 +180,33 @@ console.log('Looking for an undefined object', search(collection));
 
 // return collection searching for empty object;
 console.log('Looking for an empty object', search(collection, {}))
+
+
+// made a seperate function for the display part, leaving the console.logs for the homework on the other function, and the stretch goal here
+/**
+ * Displays album information on the page
+ * 
+ * @param {Object[]} albumCollection - is for an album collection to display
+ */
+ function showCollection2(albumCollection) {
+    // assigned the parameter with the collection since i'm using a button without an entry field
+    albumCollection = collection;
+    const albumList = document.getElementById('collection-list');
+    // set a counter to add a number to the ol tags for unique IDs to target for the tracklist
+    let number = 1;
+    albumList.innerHTML = '';
+    for(let album of albumCollection) {
+        //create the H3 with album title, artist, and year followed by
+        //an ordered list with unique ids
+        albumList.innerHTML += '<h3>' + album.title + ' by ' + album.artist + ', published in ' + album.year + '.</h3> <ol id="album' + number + '"></ol>';
+        // after the ol's with the IDs are created I can target them
+        // using the same number counter
+        const trackList = document.getElementById('album'+number)
+        trackList.innerHTML = '';
+        for(let tracks of album.tracks) {
+           trackList.innerHTML += '<li>' + tracks.name + ': ' + tracks.duration;
+        }
+        //increase counter for the next albume
+        number++;
+    };
+};
